@@ -1,0 +1,276 @@
+# deepneuralnet.py
+import tflearn
+from tflearn.layers.core import input_data, dropout, fully_connected
+from tflearn.layers.conv import conv_2d, max_pool_2d
+from tflearn.layers.estimator import regression
+from tflearn.metrics import Accuracy
+acc = Accuracy()
+network = input_data(shape=[None, 64, 64, 3])
+# Conv layers
+network = conv_2d(network, nb_filter=4, filter_size=8, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=4, strides=2)
+network = conv_2d(network, nb_filter=16, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=2, strides=2)
+# Fully Connected Layer
+network = fully_connected(network, n_units=64, activation='relu')
+network = dropout(network, 0.9)
+network = fully_connected(network, n_units=32, activation='relu')
+# Dropout layer
+
+network = fully_connected(network, n_units=11, activation='softmax')
+# Final network
+network = regression(
+    network,
+    optimizer='momentum',
+    loss='categorical_crossentropy',
+    learning_rate=0.001,
+    metric=acc,
+
+)
+
+# The checkpoint with details on where to save
+model = tflearn.DNN(
+    network,
+    checkpoint_path='./checkpoint/checkpoint-',
+    best_checkpoint_path='./checkpoint/best-checkpoint-',
+    max_checkpoints=10
+)
+
+acc = 0.4502
+
+*********************************
+
+
+# deepneuralnet.py
+import tflearn
+from tflearn.layers.core import input_data, dropout, fully_connected
+from tflearn.layers.conv import conv_2d, max_pool_2d
+from tflearn.layers.estimator import regression
+from tflearn.metrics import Accuracy
+acc = Accuracy()
+network = input_data(shape=[None, 64, 64, 3])
+# Conv layers
+network = conv_2d(network, nb_filter=4, filter_size=8, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=4, strides=2)
+network = conv_2d(network, nb_filter=16, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=2, strides=2)
+# Fully Connected Layer
+network = fully_connected(network, n_units=64, activation='relu')
+network = dropout(network, 0.9)
+network = fully_connected(network, n_units=32, activation='relu')
+# Dropout layer
+
+network = fully_connected(network, n_units=11, activation='softmax')
+# Final network
+network = regression(
+    network,
+    optimizer='momentum',
+    loss='categorical_crossentropy',
+    learning_rate=0.002,
+    metric=acc,
+
+)
+
+# The checkpoint with details on where to save
+model = tflearn.DNN(
+    network,
+    checkpoint_path='./checkpoint/checkpoint-',
+    best_checkpoint_path='./checkpoint/best-checkpoint-',
+    max_checkpoints=10
+)
+
+
+| Momentum | epoch: 020 | loss: 1.54582 - acc: 0.4178 | val_loss: 1.39638 - val_acc: 0.4583 -- iter: 57534/57534
+
+
+
+****************************************8
+
+network = conv_2d(network, nb_filter=4, filter_size=8, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=4, strides=2)
+network = conv_2d(network, nb_filter=16, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=2, strides=2)
+# Fully Connected Layer
+network = fully_connected(network, n_units=64, activation='relu')
+network = dropout(network, 0.9)
+network = fully_connected(network, n_units=32, activation='relu')
+# Dropout layer
+
+network = fully_connected(network, n_units=11, activation='softmax')
+# Final network
+network = regression(
+    network,
+    optimizer='momentum',
+    loss='categorical_crossentropy',
+    learning_rate=0.001,
+    metric=acc,
+
+)
+
+
+| Momentum | epoch: 020 | loss: 1.49079 - acc: 0.4368 | val_loss: 1.38776 - val_acc: 0.4677 -- iter: 57534/57534
+
+
+*********************************
+
+network = conv_2d(network, nb_filter=8, filter_size=8, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=4, strides=2)
+network = conv_2d(network, nb_filter=16, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=2, strides=2)
+# Fully Connected Layer
+network = fully_connected(network, n_units=64, activation='relu')
+network = dropout(network, 0.9)
+network = fully_connected(network, n_units=32, activation='relu')
+# Dropout layer
+
+network = fully_connected(network, n_units=11, activation='softmax')
+# Final network
+network = regression(
+    network,
+    optimizer='momentum',
+    loss='categorical_crossentropy',
+    learning_rate=0.001,
+    metric=acc,
+)
+
+
+| Momentum | epoch: 020 | loss: 1.52459 - acc: 0.4331 | val_loss: 1.38060 - val_acc: 0.4708 -- iter: 57534/57534
+
+
+***********************************************
+
+network = conv_2d(network, nb_filter=8, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=4, strides=2)
+network = conv_2d(network, nb_filter=16, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=2, strides=2)
+# Fully Connected Layer
+network = fully_connected(network, n_units=64, activation='relu')
+network = dropout(network, 0.9)
+network = fully_connected(network, n_units=32, activation='relu')
+# Dropout layer
+
+network = fully_connected(network, n_units=11, activation='softmax')
+# Final network
+network = regression(
+    network,
+    optimizer='momentum',
+    loss='categorical_crossentropy',
+    learning_rate=0.001,
+    metric=acc,
+)
+
+
+| Momentum | epoch: 020 | loss: 1.50160 - acc: 0.4649 | val_loss: 1.39277 - val_acc: 0.4695 -- iter: 57534/57534
+
+********************************************************88
+
+
+network = conv_2d(network, nb_filter=16, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=4, strides=2)
+network = conv_2d(network, nb_filter=32, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=2, strides=2)
+# Fully Connected Layer
+network = fully_connected(network, n_units=64, activation='relu')
+network = dropout(network, 0.9)
+network = fully_connected(network, n_units=32, activation='relu')
+# Dropout layer
+
+network = fully_connected(network, n_units=11, activation='softmax')
+# Final network
+network = regression(
+    network,
+    optimizer='momentum',
+    loss='categorical_crossentropy',
+    learning_rate=0.001,
+    metric=acc,
+)
+
+| Momentum | epoch: 020 | loss: 1.41880 - acc: 0.4914 | val_loss: 1.24737 - val_acc: 0.5258 -- iter: 57534/57534
+
+
+
+*************************************************
+
+network = conv_2d(network, nb_filter=32, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=4, strides=2)
+network = conv_2d(network, nb_filter=64, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=2, strides=2)
+# Fully Connected Layer
+network = fully_connected(network, n_units=64, activation='relu')
+network = dropout(network, 0.9)
+network = fully_connected(network, n_units=32, activation='relu')
+# Dropout layer
+
+network = fully_connected(network, n_units=11, activation='softmax')
+# Final network
+network = regression(
+    network,
+    optimizer='momentum',
+    loss='categorical_crossentropy',
+    learning_rate=0.001,
+    metric=acc,
+)
+
+
+| Momentum | epoch: 020 | loss: 1.37291 - acc: 0.4988 | val_loss: 1.15146 - val_acc: 0.5612 -- iter: 57534/57534
+
+**********************************
+
+network = conv_2d(network, nb_filter=32, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=4, strides=2)
+network = conv_2d(network, nb_filter=64, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=2, strides=2)
+network = conv_2d(network, nb_filter=128, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=2, strides=2)
+# Fully Connected Layer
+network = fully_connected(network, n_units=64, activation='relu')
+network = dropout(network, 0.9)
+network = fully_connected(network, n_units=32, activation='relu')
+# Dropout layer
+
+network = fully_connected(network, n_units=11, activation='softmax')
+# Final network
+network = regression(
+    network,
+    optimizer='momentum',
+    loss='categorical_crossentropy',
+    learning_rate=0.001,
+    metric=acc,
+)
+
+
+| Momentum | epoch: 020 | loss: 1.25720 - acc: 0.5365 | val_loss: 1.15290 - val_acc: 0.5506 -- iter: 57534/57534
+
+
+*************************
+
+network = conv_2d(network, nb_filter=32, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=4, strides=2)
+network = conv_2d(network, nb_filter=64, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=2, strides=2)
+network = dropout(network, 0.9)
+network = conv_2d(network, nb_filter=128, filter_size=4, strides=2, activation='relu')
+network = max_pool_2d(network, kernel_size=2, strides=2)
+network = dropout(network, 0.9)
+# Fully Connected Layer
+network = fully_connected(network, n_units=128, activation='relu')
+network = dropout(network, 0.9)
+network = fully_connected(network, n_units=64, activation='relu')
+# Dropout layer
+
+network = fully_connected(network, n_units=11, activation='softmax')
+# Final network
+network = regression(
+    network,
+    optimizer='momentum',
+    loss='categorical_crossentropy',
+    learning_rate=0.0005,
+    metric=acc,
+)
+
+
+
+| Momentum | epoch: 040 | loss: 1.32595 - acc: 0.4954 | val_loss: 1.18259 - val_acc: 0.5597 -- iter: 57534/57534
+
+
+
